@@ -1,0 +1,38 @@
+.login-container {
+    text-align: center;
+    margin-top: 0px; /* Adjust the margin as needed */
+    background-image: url('../public/bg2.JPG'); /* Replace 'background.jpg' with your image file */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure the background covers the entire viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; /* Set text color to white or a color that contrasts well with the background */
+  }
+  
+  .login-container h2 {
+    font-size: 4rem; /* Adjust the font size as needed */
+    margin-bottom: 20px;
+  }
+  
+  .login-container form {
+    margin-top: 20px;
+  }
+  
+  .login-container form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .login-container form input {
+    width: 100%; /* Make the input fields take up the full width of the container */
+    padding: 10px; /* Add padding for better appearance */
+    margin-bottom: 15px; /* Add margin between input fields */
+  }
+  
+  .login-container form button {
+    margin-top: 10px;
+  }
+  
