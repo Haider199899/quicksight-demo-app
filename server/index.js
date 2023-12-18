@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv/config');
 
 const app = express();
 const PORT = 5000;
 
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 // Simulated user data (replace this with a database)
 const user = {
@@ -25,5 +26,5 @@ app.post('/login', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on ${PORT}`);
 });
