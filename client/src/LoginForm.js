@@ -8,7 +8,7 @@ const LoginForm = ({ onLogin }) => {
   const navigate = useNavigate()
   const handleLogin = async () => {
     // Perform validation and send login request to the server
-    const response = await fetch('https://quicksight-demo-app-p89b.vercel.app/login', {
+    const response = await fetch('https://quicksight-demo-app.vercel.app/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
