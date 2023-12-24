@@ -4,8 +4,8 @@ const cors = require('cors')
 require('dotenv/config')
 const AWS = require('aws-sdk');
 const credentials = {
-  accessKeyId: process.env.ACCESS_KEY,
-  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 }
 AWS.config.update(credentials)
 const quicksightClient = new AWS.QuickSight({
@@ -75,8 +75,7 @@ app.post('/login', async (req, res) => {
   }
 }catch(error) {
   return res.json({
-    message : error + process.env.AWS_ACCOUNT_ID
-    
+    message : error
   })
 }
 })
