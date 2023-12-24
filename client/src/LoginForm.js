@@ -13,7 +13,7 @@ const LoginForm = ({ onLogin }) => {
   const handleLogin = async () => {
     try {
       setIsLoading(true); // Set loading to true before making the fetch request
-      const response = await fetch('https://quicksight-demo-app.vercel.app/login', {
+      const response = await fetch('https://quicksight-demo-app-p89b.vercel.app/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -13,9 +13,7 @@ const quicksightClient = new AWS.QuickSight({
   region: 'us-east-1',
 })
 const app = express();
-app.use(cors({
-  origin: 'https://quicksight-demo-app-p89b.vercel.app',
-}));
+app.use(cors());
 app.use(bodyParser.json())
 
 const generateDashboardUrl = async () => {
