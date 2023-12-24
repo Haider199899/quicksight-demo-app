@@ -3,9 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 require('dotenv/config')
 const AWS = require('aws-sdk');
-const app = express()
-app.use(cors());
-app.use(bodyParser.json())
+
+
 const credentials = {
   accessKeyId: process.env.ACCESS_KEY,
   secretAccessKey: process.env.SECRET_ACCESS_KEY,
@@ -15,6 +14,9 @@ const quicksightClient = new AWS.QuickSight({
   apiConfig: require('aws-sdk/apis/quicksight-2018-04-01.min.json'),
   region: 'us-east-1',
 })
+const app = express();
+app.use(cors());
+app.use(bodyParser.json())
 
 const generateDashboardUrl = async () => {
   let userArn = ''
@@ -62,11 +64,11 @@ app.post('/login', async (req, res) => {
   const { username, password } = req.body
   if (user.username === username && user.password === password) {
     const url = await generateDashboardUrl();
-    res.json({
-      success : true,
-      url : url
-    })
-    
+
+     res.json({
+       success : true,
+       url : url
+     });
   } else {
     res.json({ success: false, message: 'Invalid username or password' })
   }
