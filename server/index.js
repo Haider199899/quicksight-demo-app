@@ -4,7 +4,7 @@ const cors = require('cors')
 require('dotenv/config')
 const AWS = require('aws-sdk');
 const app = express()
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.json())
 const credentials = {
   accessKeyId: process.env.ACCESS_KEY,
