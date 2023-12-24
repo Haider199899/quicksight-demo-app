@@ -9,7 +9,7 @@ const QuicksightDashboard = () => {
    <iframe
    width="1680"
    height="1000"
-   src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/330775944914/dashboards/78ef0f77-beef-456d-9731-b4ef0de26647?directory_alias=mhaider">
+   src="https://us-east-1.quicksight.aws.amazon.com/embed/8dd17521e5eb4d8a8e1b55cf45f2d13f/dashboards/78ef0f77-beef-456d-9731-b4ef0de26647">
   </iframe>
     }
     </div>

@@ -1,30 +1,39 @@
+// LoginForm.js
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import LoaderComponent from './LoaderComponent'; // Import the loader component
 import './LoginForm.css'; // Import the CSS file
 
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const navigate = useNavigate();
+
   const handleLogin = async () => {
-    // Perform validation and send login request to the server
-    const response = await fetch('https://quicksight-demo-app.vercel.app/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    });
+    try {
+      setIsLoading(true); // Set loading to true before making the fetch request
 
-    const data = await response.json();
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (data.success) {
-      // Successful login
-     // onLogin();
-      navigate('/quicksight-dashboard')
-    } else {
-      // Display error message
-      alert(data.message);
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Ok')
+      } else {
+        // Display error message
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    } finally {
+      setIsLoading(false); // Set loading to false regardless of the fetch result
     }
   };
 
@@ -41,6 +50,9 @@ const LoginForm = ({ onLogin }) => {
         </label>
         <br />
         <button type="button" onClick={handleLogin}>Login</button>
+
+        {/* Display the loader component when isLoading is true */}
+        {isLoading && <LoaderComponent />}
       </form>
     </div>
   );

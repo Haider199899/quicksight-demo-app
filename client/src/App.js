@@ -7,9 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/"  element={<LoginForm/>} />
-        <Route path="/quicksight-dashboard" element={<QuicksightDashboard/>} />
-        
+      <Route path="/"  element={<LoginForm/>} />        
       </Routes>
     </Router>
   );
