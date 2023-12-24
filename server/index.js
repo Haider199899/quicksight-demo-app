@@ -61,6 +61,7 @@ const user = {
 }
 
 app.post('/login', async (req, res) => {
+  try {
   const { username, password } = req.body
   if (user.username === username && user.password === password) {
     const url = await generateDashboardUrl();
@@ -72,6 +73,11 @@ app.post('/login', async (req, res) => {
   } else {
     res.json({ success: false, message: 'Invalid username or password' })
   }
+}catch(error) {
+  return res.json({
+    message : error
+  })
+}
 })
 
 app.listen(process.env.PORT, () => {
