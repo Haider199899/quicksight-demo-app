@@ -2,7 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors')
 require('dotenv/config')
-const AWS = require('aws-sdk')
+const AWS = require('aws-sdk');
+const app = express()
+app.use(cors())
+app.use(bodyParser.json())
 const credentials = {
   accessKeyId: process.env.ACCESS_KEY,
   secretAccessKey: process.env.SECRET_ACCESS_KEY,
@@ -12,9 +15,7 @@ const quicksightClient = new AWS.QuickSight({
   apiConfig: require('aws-sdk/apis/quicksight-2018-04-01.min.json'),
   region: 'us-east-1',
 })
-const app = express()
-app.use(cors())
-app.use(bodyParser.json())
+
 const generateDashboardUrl = async () => {
   let userArn = ''
   const user = await quicksightClient
