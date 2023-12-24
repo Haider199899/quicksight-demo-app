@@ -75,7 +75,8 @@ app.post('/login', async (req, res) => {
   }
 }catch(error) {
   return res.json({
-    message : error
+    message : error + process.env.AWS_ACCOUNT_ID
+    
   })
 }
 })
