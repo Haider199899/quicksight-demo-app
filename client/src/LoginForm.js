@@ -20,7 +20,7 @@ const LoginForm = ({ onLogin }) => {
         },
         body: JSON.stringify({ username, password }),
       });
-      console.log(response)
+      
       
 
       const data = await response.json();

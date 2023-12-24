@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 require('dotenv/config')
 const AWS = require('aws-sdk');
-
-
 const credentials = {
   accessKeyId: process.env.ACCESS_KEY,
   secretAccessKey: process.env.SECRET_ACCESS_KEY,
@@ -15,7 +13,9 @@ const quicksightClient = new AWS.QuickSight({
   region: 'us-east-1',
 })
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://quicksight-demo-app-p89b.vercel.app',
+}));
 app.use(bodyParser.json())
 
 const generateDashboardUrl = async () => {
