@@ -13,7 +13,6 @@ const LoginForm = ({ onLogin }) => {
   const handleLogin = async () => {
     try {
       setIsLoading(true); // Set loading to true before making the fetch request
-
       const response = await fetch('https://quicksight-demo-app-p89b.vercel.app/login', {
         method: 'POST',
         headers: {
@@ -21,11 +20,12 @@ const LoginForm = ({ onLogin }) => {
         },
         body: JSON.stringify({ username, password }),
       });
+      
 
       const data = await response.json();
 
       if (response.ok) {
-        alert('Ok')
+        window.location.href = data.url;
       } else {
         // Display error message
         alert(data.message);

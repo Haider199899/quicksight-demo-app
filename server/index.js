@@ -1,6 +1,5 @@
 const express = require('express')
-const bodyParser = require('body-parser')
-const open = require('open')
+const bodyParser = require('body-parser');
 const cors = require('cors')
 require('dotenv/config')
 const AWS = require('aws-sdk')
@@ -61,8 +60,7 @@ const user = {
 app.post('/login', async (req, res) => {
   const { username, password } = req.body
   if (user.username === username && user.password === password) {
-    const url = await generateDashboardUrl()
-    open(url).then();
+    const url = await generateDashboardUrl();
     res.json({
       success : true,
       url : url
